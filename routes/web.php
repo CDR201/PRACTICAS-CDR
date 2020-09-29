@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/Principal','Controller@Principal')->name('Principal');
+Route::get('/Layout','Controller@Layout')->name('Layout');
+

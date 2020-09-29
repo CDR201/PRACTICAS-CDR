@@ -9,5 +9,15 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function Principal()
+	{
+		return view ('principal');
+    }
+    public function Layout ()
+	{
+		return view ('app');
+    }
 }
+
+
+
