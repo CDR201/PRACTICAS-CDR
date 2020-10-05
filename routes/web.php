@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/Principal','Controller@Principal')->name('Principal');
 Route::get('/Layout','Controller@Layout')->name('Layout');
 
+Route::resource('/Helloworld','CDR');
