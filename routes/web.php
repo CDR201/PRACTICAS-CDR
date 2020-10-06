@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::get('/Principal','Controller@Principal')->name('Principal');
 Route::get('/Layout','Controller@Layout')->name('Layout');
+Route::get('/miprimerarray','Controller@getmaestro')->name('maestro');
 
 Route::resource('/Helloworld','CDR');
