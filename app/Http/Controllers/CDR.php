@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\materias;
+use App\Http\Requests\materiascdr as materiascdrRequests;
+
 
 class CDR extends Controller
 {
@@ -11,9 +14,15 @@ class CDR extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $Materias;
+    public function __construct (materias $Materias){
+        $this->Materias = $Materias;
+    
+    }
     public function index()
     {
-        return view ('Helloworld');
+        $Materias = materias::all();
+        return response()->json(['materias'=>$Materias]);
     }
 
     /**
@@ -32,9 +41,11 @@ class CDR extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(materiascdrRequests $request)
     {
-        //
+    $Materias = $this->Materias->create($request->all());
+    return $Materias;
+    return response()->json(new materiascdrRequests($Materia), 201);
     }
 
     /**
@@ -45,7 +56,8 @@ class CDR extends Controller
      */
     public function show($id)
     {
-        //
+      $Materias = materias::find($id);
+      return $Materias;
     }
 
     /**

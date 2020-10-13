@@ -16,8 +16,10 @@ class Materias extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('nombre',20);
-			$table->rememberToken();
+            $table->rememberToken();
+            $table->softdeletes();
             $table->timestamps();
+        
         });
     }
 
