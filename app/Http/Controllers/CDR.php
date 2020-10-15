@@ -44,8 +44,8 @@ class CDR extends Controller
     public function store(materiascdrRequests $request)
     {
     $Materias = $this->Materias->create($request->all());
-    return $Materias;
-    return response()->json(new materiascdrRequests($Materia), 201);
+    return response()->json($Materias);
+    /*return response()->json(new materiascdrRequests($Materias), 201);*/
     }
 
     /**
@@ -89,8 +89,9 @@ class CDR extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(materias $Materias)
     {
-        //
+    $Materias->delete();
+    return response()->json('el registro fue eliminado');
     }
 }
