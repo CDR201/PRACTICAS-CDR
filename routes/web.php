@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@index');
 
 Route::get('/Principal','Controller@Principal')->name('Principal');
 Route::get('/Layout','Controller@Layout')->name('Layout');
@@ -27,8 +25,6 @@ Route::group (['prefix' => 'api'], function(){
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Backend\HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
