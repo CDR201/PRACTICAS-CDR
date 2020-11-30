@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use app\materias;
 use Illuminate\Foundation\Http\FormRequest;
 
 class materiascdr extends FormRequest

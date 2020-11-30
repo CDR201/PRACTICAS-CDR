@@ -22,5 +22,13 @@ Route::get('/miprimerarray','Controller@getmaestro')->name('maestro');
 Route::resource('/Helloworld','CDR');
 
 Route::group (['prefix' => 'api'], function(){
-    Route::apiResource('materias','CDR');
+    /*Route::apiResource('materias','CDR');*/
+    Route::apiResource('maestro','CDR');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\materias;
-use App\Http\Requests\materiascdr as materiascdrRequests;
+/*use App\materias;*/
+use App\maestros;
+/*use App\Http\Requests\materiascdr as materiascdrRequests;*/
 
 
 class CDR extends Controller
@@ -14,15 +15,17 @@ class CDR extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $Materias;
+    protected $Maestros;
+    /*protected $Materias;
     public function __construct (materias $Materias){
         $this->Materias = $Materias;
     
-    }
+    }*/
     public function index()
     {
-        $Materias = materias::all();
-        return response()->json(['materias'=>$Materias]);
+        $Maestros=maestros::edad()->get();
+        return response()->json(['maestros'=>$Maestros]);
+
     }
 
     /**
@@ -41,12 +44,11 @@ class CDR extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(materiascdrRequests $request)
+    /*public function store(materiascdrRequests $request)
     {
     $Materias = $this->Materias->create($request->all());
-    return response()->json($Materias);
+    return response()->json([$Materias]);
     /*return response()->json(new materiascdrRequests($Materias), 201);*/
-    }
 
     /**
      * Display the specified resource.
@@ -56,11 +58,11 @@ class CDR extends Controller
      */
     public function show($id)
     {
-      $Materias = materias::find($id);
-      return $Materias;
+        $Maestros->maestros::where('edad','>', 30);
+        return response()->json(['maestros'=>$Maestros]);
     }
 
-    /**
+    /*
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -78,11 +80,11 @@ class CDR extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(materiascdrRequests $request, materias $Materias)
+    /*public function update(materiascdrRequests $request, materias $Materias)
 
     {
-     $Materias->update($request->all());
-     return response()->json('ha sido modificado con exito');   
+     $Materias-> $this->Materias->update($request->all());
+     return response()->json($Materias);   
     }
 
     /**
@@ -91,9 +93,9 @@ class CDR extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(materias $Materias)
+    /*public function destroy(materias $Materias)
     {
     $Materias->delete();
-    return response()->json('el registro fue eliminado');
-    }
+    return response()->json('El registro ha sido eliminado');
+    }*/
 }
